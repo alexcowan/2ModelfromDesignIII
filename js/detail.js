@@ -1,5 +1,3 @@
-
-
 // Creates an instance of the DB using the Firebase SDK
 var db = firebase.firestore();
 
@@ -185,4 +183,116 @@ function displayStars(rating, elementId) {
     star.className = "fa fa-star";
     container.appendChild(star);
   }
+}
+
+// Authentication Functions
+document.getElementById('login-trigger').addEventListener('click', authUser);
+
+function authUser() {
+  handle_auth();
+}
+
+document.getElementById('register-link').addEventListener('click', onReg);
+
+function onReg() {
+  document.getElementById('loginForm').style.display = "none";
+  document.getElementById('registerForm').style.display = "block";
+}
+
+document.getElementById('forgotten-link').addEventListener('click', onForget);
+
+function onForget() {
+  document.getElementById('forgottenForm').style.display = "block";
+  document.getElementById('before-reset').style.display = "block";
+  document.getElementById('loginForm').style.display = "none";
+}
+
+function handle_auth() {
+  var user = firebase.auth().currentUser;
+  console.log("dealing with " + user);
+
+  if (!user) {
+    ltState = document.getElementById('login-content').style.display;
+    console.log(ltState);
+    if (ltState == "block") {
+      document.getElementById('login-content').style.display = "none";
+    } else {
+      document.getElementById('login-content').style.display = "block";
+      document.getElementById('registerForm').style.display = "none";
+      document.getElementById('before-reset').style.display = "none";
+      document.getElementById('after-reset').style.display = "none";
+      document.getElementById('if-error').style.display = "none";
+      document.getElementById('loginForm').style.display = "block";
+    }
+  } else {
+    firebase.auth().signOut().then(function () {
+      console.log("Signed out " + user.email);
+    }).catch(function (error) {
+      alert("Something went wrong.");
+    });
+    document.getElementById("auth-text").innerHTML = "Log In";
+  }
+}
+
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', loginUser);
+
+function loginUser() {
+  console.log("attempting to login user");
+
+  email = document.getElementById("login_email").value;
+  pwd = document.getElementById("login_pwd").value;
+
+  firebase.auth().signInWithEmailAndPassword(email, pwd).then(function () {
+    document.getElementById("loginForm").reset();
+    location.reload(); // Reload the page to show review options
+  }, function (error) {
+    var errorMessage = error.message;
+    alert(errorMessage);
+  });
+}
+
+const registerForm = document.getElementById('registerForm');
+registerForm.addEventListener('submit', registerUser);
+
+function registerUser() {
+  console.log("I'll try to register this user");
+
+  email = document.getElementById("register_email").value;
+  pwd = document.getElementById("register_pwd").value;
+  rePwd = document.getElementById("register_re_pwd").value;
+
+  if (pwd != rePwd) {
+    document.getElementById("reg-error-response").innerHTML = "Error: passwords do not match.";
+    document.getElementById('if-reg-error').style.display = "block";
+  } else {
+    firebase.auth().createUserWithEmailAndPassword(email, pwd).then(function (user) {
+      if (user) {
+        document.getElementById("registerForm").reset();
+        location.reload(); // Reload the page to show review options
+      }
+    }, function (error) {
+      var errorMessage = error.message;
+      document.getElementById("reg-error-response").innerHTML = errorMessage;
+      document.getElementById('if-reg-error').style.display = "block";
+    });
+  }
+}
+
+const forgottenForm = document.getElementById('forgottenForm');
+forgottenForm.addEventListener('submit', recoverPassword);
+
+function recoverPassword() {
+  email = document.getElementById("recovery_email").value;
+
+  firebase.auth().sendPasswordResetEmail(email).then(function () {
+    console.log("sending recovery to " + email);
+    document.getElementById('before-reset').style.display = "none";
+    document.getElementById('after-reset').style.display = "block";
+    document.getElementById("forgottenForm").reset();
+  }).catch(function (error) {
+    var errorMessage = error.message;
+    document.getElementById("error-response").innerHTML = errorMessage;
+    document.getElementById('if-error').style.display = "block";
+  });
 }

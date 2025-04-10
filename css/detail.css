@@ -1,0 +1,198 @@
+ .top-bar,
+  #search-box,
+  .nav-list li,
+  .nav-list a {
+    background-color: #002d45;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 110%;
+    color: #ffffff;
+  }
+
+  .top-bar {
+    height: 40px;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-list {
+    list-style-type: none;
+    padding: 0;
+    display: inline;
+  }
+
+  .nav-list li {
+    float: left;
+  }
+
+  .nav-list a {
+    display: inline;
+    padding: 8px;
+    text-decoration: none;
+  }
+
+  #search-box {
+    margin-left: auto;
+    margin-right: 0;
+    padding: 10px;
+  }
+
+  p {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    overflow: scroll;
+    margin: 0;
+  }
+
+  #part-info {
+    margin: 15px;
+    padding: 0 5px;
+    width: 100%;
+  }
+
+  #part-info img {
+    float: left;
+    padding: 5px;
+  }
+
+  #part-info h2 {
+    display: inline;
+  }
+
+  button {
+    display: inline;
+    font-size: 20px;
+    margin: 0 5px 5px 0;
+    background-color: #002D45;
+    color: #ffffff;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #003d5e;
+  }
+
+  /* Specific styling for the checkout button to make it stand out */
+  #checkout-btn {
+    background-color: #003d5e;
+  }
+
+  #checkout-btn:hover {
+    background-color: #004d76;
+  }
+
+  #review-signifier {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    float: left;
+  }
+
+  #part-info h3 {
+    margin: 0;
+  }
+
+  input.star {
+    display: none;
+  }
+
+  label.star {
+    padding: 0;
+    font-size: 15px;
+    color: #444;
+  }
+
+  input.star:checked ~ label.star:before {
+    content: "\f005";
+    color: #000;
+    transition: all 0.25s;
+  }
+
+  label.star:before {
+    content: "\f006";
+    font-family: FontAwesome;
+  }
+
+  .fa-star {
+    opacity: 0.5;
+  }
+
+  .checked {
+    color: black;
+    opacity: 1;
+  }
+
+  #user-reviews {
+    clear: both;
+  }
+
+  #mod-link {
+    display: none;
+  }
+
+  /* Authentication Styles */
+  #auth-control {
+    margin-left: 20px;
+    position: relative;
+  }
+
+  #login-content {
+    display: none;
+    position: absolute;
+    margin-right: 10px;
+    top: 60px;
+    right: 0;
+    left: auto;
+    z-index: 999;
+    background: #ffffff;
+    padding: 15px;
+    border: 1px solid #CCC;
+    width: 200px;
+  }
+
+  #login-content input {
+    margin-bottom: 3px;
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #CCC;
+  }
+
+  #login-content label {
+    cursor: pointer;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    color: #002D45;
+  }
+
+  #login-content #register-form {
+    display: none;
+  }
+
+  #login-content #forgotten-form {
+    display: none;
+  }
+
+  #login-content, #after-reset, #if-error, #if-reg-error {
+    display: none;
+  }
+
+  #login-content .auth-link {
+    cursor: pointer;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    color: #002D45;
+  }
+
+  #forgotten-link, #reset-response, #after-reset, #login-link-modal, #if-error, #if-reg-error {
+    cursor: pointer;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, sans-serif;
+    color: #002D45;
+    font-size: 80%;
+  }
+
+  #login-link-modal {
+    font-size: 120%;
+  }
