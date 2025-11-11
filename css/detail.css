@@ -1,3 +1,13 @@
+/**
+ * @File: css/detail.css
+ * @Why: Defines page-specific styles for the part detail view and review system.
+ * @Does: Styles only. Handles detail page layout, review components, and authentication forms.
+ * @Inputs: HTML elements with classes for detail page components and review elements.
+ * @Outputs: Visual appearance for part details, star ratings, and user interaction elements.
+ * @Depends on: main.css for base typography and color tokens.
+ * @Not responsible for: Data fetching, review submission logic, or authentication handling.
+ */
+
  .top-bar,
   #search-box,
   .nav-list li,

@@ -1,3 +1,13 @@
+/**
+ * @File: css/main.css
+ * @Why: Defines global styles, layout, and design tokens for the HVAC parts catalog.
+ * @Does: Establishes base typography, color scheme, grid layouts, and component foundations.
+ * @Inputs: HTML elements, class selectors, and pseudo-elements.
+ * @Outputs: Consistent visual appearance across all pages with responsive design.
+ * @Depends on: None (base stylesheet).
+ * @Not responsible for: Component-specific styling, business logic, or DOM manipulation.
+ */
+
 body {
     display: block;
     margin: 8px;

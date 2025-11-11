@@ -1,3 +1,13 @@
+/**
+ * @File: js/detail.js
+ * @Why: Handles individual part detail page functionality including part display, review system, and user interactions.
+ * @Does: Manages part data loading, review submission/modification, star ratings, and authentication state.
+ * @Inputs: Part ID from localStorage, Firebase Firestore data, user review inputs.
+ * @Outputs: Detailed part information display, review system, user-specific review management.
+ * @Depends on: Firebase SDK, main.js for shared authentication functions, CSS classes.
+ * @Not responsible for: Parts catalog grid display or filtering (handled in main.js).
+ */
+
 // Creates an instance of the DB using the Firebase SDK
 var db = firebase.firestore();
 

@@ -1,3 +1,13 @@
+/**
+ * @File: js/main.js
+ * @Why: Orchestrates the main catalog page functionality including parts display, filtering, and authentication.
+ * @Does: Manages DOM updates, Firebase integration, user authentication, and parts catalog interactions.
+ * @Inputs: Firebase Firestore data, user form inputs, DOM events.
+ * @Outputs: Rendered parts grid, filtered results, authentication state changes.
+ * @Depends on: Firebase SDK, DOM elements, CSS classes for styling.
+ * @Not responsible for: Individual part detail logic (handled in detail.js).
+ */
+
 // -----------------------------
 // CODE THAT LOADS THE HVAC PARTS (FROM FIRESTORE)
 // -----------------------------
