@@ -48,3 +48,10 @@ coverage/
 
 # Parcel, Vite, or similar tools (if used)
 .cache/
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+playwright-report/
+test-results/
